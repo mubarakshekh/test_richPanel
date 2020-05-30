@@ -3,7 +3,7 @@
     <div class="for-response">
       <Home v-if="Loading" />
       <ContentLoader v-else />
-      <modal name="permission" :width="300" :height="300" style>
+      <modal name="permission" :width="300" :height="300" :clickToClose = false>
         <div class="modal-contain">
           <div>Rich Panel need your location for weather details</div>
           <button class="btn btn-success margin-20" @click="hide">Allow</button>
