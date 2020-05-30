@@ -17,7 +17,7 @@
 
 <script>
 import Home from "./page/home";
-import ContentLoader from "./components/ContentLoader";
+import ContentLoader from "./components/loaders/ContentLoader";
 import { mapActions } from "vuex";
 import { service } from "./service/permission";
 export default {

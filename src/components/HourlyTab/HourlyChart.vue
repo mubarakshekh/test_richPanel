@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="chart-container">
-      <div class="chart-scrollable">
+      <div v-if="HourLabel != ''" class="chart-scrollable">
       <line-chart v-if="loaded" :height = '130' :chart-data="datacollection"></line-chart>
       </div>
+      <ContentLoader v-else />
     </div>
   </div>
 </template>
@@ -11,10 +12,12 @@
 <script>
 import { mapGetters } from "vuex";
 import LineChart from "../../chart/lineChart";
+import ContentLoader from '../loaders/ContentLoader'
 export default {
   name: "HourlyChart",
   components: {
-    LineChart
+    LineChart,
+    ContentLoader
   },
   data() {
     return {

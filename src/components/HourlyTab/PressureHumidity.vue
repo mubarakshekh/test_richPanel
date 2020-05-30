@@ -2,21 +2,23 @@
   <div class="pressure-container">
     <div class="tab">
       <span class="tab-heading">Pressure</span>
-      <span >{{pressure}} hpa</span>
+      <span v-if="pressure !=''">{{pressure}} hpa</span>
+      <Loading v-else/>
     </div>
     <div class="tab">
       <span class="tab-heading">Humidity</span>
-      <span >{{humidity}} %</span>
+      <span v-if="humidity !=''">{{humidity}} %</span>
+      <Loading v-else/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-
+import Loading from '../loaders/Loading'
 export default {
   name: "PressureHumidity",
-  components: {},
+  components: {Loading},
   computed: {
     ...mapGetters(["humidity", "pressure"])
   }
