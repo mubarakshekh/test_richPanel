@@ -53,6 +53,8 @@ export default {
           this.longitude = response.data.lon;
           this.city = response.data.city;
           this.getTemp([this.latitude, this.longitude, this.city]);
+          sessionStorage.setItem("currentlatitude", this.latitude);
+          sessionStorage.setItem("currentlongitude", this.longitude);
 
           this.Loading = true;
           this.$modal.hide("permission");
@@ -62,7 +64,14 @@ export default {
   },
 
   mounted() {
-    this.show();
+    const latitude = sessionStorage.getItem("currentlatitude");
+    const longitude = sessionStorage.getItem("currentlongitude");
+
+    if (latitude && longitude) {
+      this.hide();
+    } else {
+      this.show();
+    }
   }
 };
 </script>
@@ -78,7 +87,7 @@ export default {
   text-align: center;
 }
 
-.margin-20{
+.margin-20 {
   margin: 20px;
 }
 

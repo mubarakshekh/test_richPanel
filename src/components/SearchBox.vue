@@ -44,6 +44,9 @@ export default {
     getWeather() {
       if (this.latitude && this.latitude) {
         this.getTemp([this.latitude, this.longitude]);
+     
+        sessionStorage.setItem('currentlatitude', this.latitude)
+        sessionStorage.setItem('currentlongitude', this.longitude)
       }
 
     }
