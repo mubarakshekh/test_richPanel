@@ -7,30 +7,22 @@
     </span>
   </div>
 </template>
-
 <script>
 import Loading from '../loaders/Loading'
 import { mapGetters } from 'vuex'
 export default {
   name: "CurrentTemperature",
   components: {Loading},
-
   data() {
     return {
-
     };
   },
-
     computed: {
     ...mapGetters(["CurrentTemp",'dynamicIcon'])
   },
-
   created(){
-
   }
-
 };
 </script>
-
 <style>
 </style>
